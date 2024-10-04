@@ -3,11 +3,11 @@ import Button from '@/components/base/Button'
 
 const NewReleased = () => (
   <div className="flex gap-16 justify-center items-center w-full p-12 bg-[#f2f2f2] h-auto lg:h-175 flex-wrap lg:flex-nowrap">
-    <div className="flex flex-col gap-8 w-96">
+    <div className="flex flex-col gap-8 w-108">
       <Typography variant="h1" className="pb-8 font-seminormal">
         New Album Released
       </Typography>
-      <Typography variant="h5">
+      <Typography variant="h6">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </Typography>

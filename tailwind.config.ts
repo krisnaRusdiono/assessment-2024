@@ -25,6 +25,7 @@ const config: Config = {
       },
       width: {
         67.5: '16.875rem',
+        108: '27rem',
         167.5: '41.875rem',
       },
       fontWeight: {
