@@ -24,6 +24,7 @@ const config: Config = {
         205: '51.25rem',
       },
       width: {
+        67: '16.5rem',
         67.5: '16.875rem',
         108: '27rem',
         167.5: '41.875rem',
