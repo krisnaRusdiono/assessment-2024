@@ -4,6 +4,9 @@ import './globals.css'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import theme from '@/app/theme'
+import Toolbar from '@/components/ui/Toolbar'
+import { SidebarContextProvider } from '@/contexts/Sidebar'
+import Sidebar from '@/components/ui/Sidebar'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -35,7 +38,13 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
-            {children}
+            <SidebarContextProvider>
+              <Sidebar />
+              <div className="px-8 min-h-screen h-auto">
+                <Toolbar />
+                {children}
+              </div>
+            </SidebarContextProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
