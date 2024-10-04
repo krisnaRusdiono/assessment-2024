@@ -1,6 +1,5 @@
-import Dashboard from "@/views/Dashboard";
+import Dashboard from '@/views/Dashboard'
 
 const DashboardPage = () => <Dashboard />
 
-export default DashboardPage;
-
+export default DashboardPage

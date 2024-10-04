@@ -1,5 +1,3 @@
-const Dashboard = () => (
-    <div>create mockup!</div>
-)
+const Dashboard = () => <div>create mockup!</div>
 
-export default Dashboard;
+export default Dashboard
