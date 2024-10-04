@@ -10,7 +10,10 @@ const Feeds = () => (
       </div>
       <div className="flex gap-8">
         {new Array(6).fill(null).map((_, index) => (
-          <div className="w-20 h-20 rounded-full bg-black cursor-pointer" key={index} />
+          <div
+            className="w-20 h-20 rounded-full bg-black cursor-pointer"
+            key={index}
+          />
         ))}
       </div>
     </div>

@@ -18,7 +18,7 @@ const OurDiscography = () => (
           .fill({ title: 'Special Feature', id: 'card-discography' })
           .map(({ title }, index) => (
             <div
-              className="w-67.5 flex flex-col bg-white"
+              className="w-67.5 flex flex-col bg-white cursor-pointer"
               key={`${title}-${index}`}
             >
               <div className="w-full h-67.5 bg-neutral-900 relative">
