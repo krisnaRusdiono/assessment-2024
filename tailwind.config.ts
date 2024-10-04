@@ -16,6 +16,20 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
+      height: {
+        41.5: '10.375rem',
+        67.5: '16.875rem',
+        120: '30rem',
+        175: '43.75rem',
+        205: '51.25rem',
+      },
+      width: {
+        67.5: '16.875rem',
+        167.5: '41.875rem',
+      },
+      fontWeight: {
+        seminormal: '500',
+      },
     },
   },
   plugins: [],
