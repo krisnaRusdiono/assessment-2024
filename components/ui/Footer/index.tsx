@@ -1,14 +1,17 @@
 import Typography from '@/components/base/Typography'
+import Link from 'next/link'
 
 const Footer = () => (
   <div className="bg-white flex justify-center gap-8 p-8 flex-wrap md:flex-nowrap">
     <div className="w-full box-border flex flex-wrap lg:flex-nowrap gap-4 lg:gap-10 justify-center md:justify-end">
-      <Typography
-        variant="body1"
-        className="text-2xl font-semibold text-center"
-      >
-        TRADE
-      </Typography>
+      <Link href="/">
+        <Typography
+          variant="body1"
+          className="text-2xl font-semibold text-center"
+        >
+          TRADE
+        </Typography>
+      </Link>
       <div className="flex flex-col gap-4 py-3 max-w-120 items-center md:items-end lg:items-start">
         <Typography variant="body2" className="font-semibold">
           Latest Blog Post
