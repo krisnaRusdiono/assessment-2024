@@ -17,7 +17,7 @@ const AlbumCover = () => (
           <Typography variant="h6">Release Year</Typography>
         </div>
         <div className="flex gap-4">
-          <Button variant="contained" color="secondary" className="w-full">
+          <Button variant="outlined" color="secondary" className="w-full">
             Share
           </Button>
           <Button variant="contained" color="primary" className="w-full">
