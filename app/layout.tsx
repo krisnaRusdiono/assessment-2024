@@ -7,6 +7,7 @@ import theme from '@/app/theme'
 import Toolbar from '@/components/ui/Toolbar'
 import { SidebarContextProvider } from '@/contexts/Sidebar'
 import Sidebar from '@/components/ui/Sidebar'
+import Footer from '../components/ui/Footer'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -43,6 +44,7 @@ export default function RootLayout({
               <div className="px-8 min-h-screen h-auto">
                 <Toolbar />
                 {children}
+                <Footer />
               </div>
             </SidebarContextProvider>
           </ThemeProvider>

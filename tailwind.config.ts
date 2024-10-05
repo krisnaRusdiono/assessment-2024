@@ -18,10 +18,14 @@ const config: Config = {
       },
       height: {
         41.5: '10.375rem',
+        67: '16.75rem',
         67.5: '16.875rem',
         120: '30rem',
         175: '43.75rem',
         205: '51.25rem',
+      },
+      maxWidth: {
+        120: '30rem',
       },
       width: {
         67: '16.5rem',
