@@ -8,10 +8,10 @@ const Feeds = () => (
           Follow us here!
         </Typography>
       </div>
-      <div className="flex gap-8">
+      <div className="flex gap-8 flex-wrap lg:flex-nowrap justify-center">
         {new Array(6).fill(null).map((_, index) => (
           <div
-            className="w-20 h-20 rounded-full bg-black cursor-pointer"
+            className="w-20 h-20 rounded-full bg-black cursor-pointer hover:drop-shadow-lg transition-all"
             key={index}
           />
         ))}
