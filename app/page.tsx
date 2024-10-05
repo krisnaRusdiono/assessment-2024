@@ -1,5 +1,5 @@
-import Dashboard from '@/views/Dashboard'
+import Homepage from '@/views/Homepage'
 
-const DashboardPage = () => <Dashboard />
+const HomePage = () => <Homepage />
 
-export default DashboardPage
+export default HomePage
