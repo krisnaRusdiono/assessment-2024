@@ -11,12 +11,6 @@ const roboto = Roboto({
 const theme = createTheme({
   palette: {
     mode: 'light',
-    // primary: {
-    //   main: '#000000', // Set the primary background color to black
-    // },
-    // secondary: {
-    //   main: '#f2f2f2', // Set the secondary background color to light gray
-    // },
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
@@ -74,6 +68,24 @@ const theme = createTheme({
           [`&.MuiButton-contained.MuiButton-colorSecondary `]: {
             backgroundColor: '#f2f2f2',
             color: '#000000',
+            '&:hover': {
+              backgroundColor: '#000000',
+              color: '#f2f2f2',
+            },
+          },
+          [`&.MuiButton-outlined.MuiButton-colorPrimary`]: {
+            backgroundColor: '#000000',
+            color: '#f2f2f2',
+            borderColor: '#000000',
+            '&:hover': {
+              backgroundColor: '#f2f2f2',
+              color: '#000000',
+            },
+          },
+          [`&.MuiButton-outlined.MuiButton-colorSecondary `]: {
+            backgroundColor: '#f2f2f2',
+            color: '#000000',
+            borderColor: '#000000',
             '&:hover': {
               backgroundColor: '#000000',
               color: '#f2f2f2',

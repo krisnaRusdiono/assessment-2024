@@ -21,12 +21,16 @@ const config: Config = {
         67: '16.75rem',
         67.5: '16.875rem',
         120: '30rem',
+        124: '31rem',
         150: '37.5rem',
         175: '43.75rem',
         205: '51.25rem',
       },
       maxWidth: {
         120: '30rem',
+      },
+      minHeight: {
+        124: '31rem',
       },
       width: {
         67: '16.5rem',
