@@ -7,9 +7,12 @@ import { useSidebarContext } from '@/contexts/Sidebar'
 import MENU from '@/constants/menu'
 import Link from 'next/link'
 import SpotifySSO from '@/components/base/SpotifyLogin'
+import ArtistSelector from '@/components/ui/ArtistSelector'
+import { useSession } from 'next-auth/react'
 
 const Toolbar = () => {
   const { open, toggleOpen } = useSidebarContext()
+  const { data: session = null } = useSession()
 
   return (
     <div className="sticky top-0 flex items-center md:justify-between p-4 bg-white z-20">
@@ -32,7 +35,10 @@ const Toolbar = () => {
           </Link>
         ))}
       </div>
-      <SpotifySSO />
+      <div className="flex gap-4">
+        {session && <ArtistSelector />}
+        <SpotifySSO />
+      </div>
     </div>
   )
 }
