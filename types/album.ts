@@ -15,7 +15,7 @@ export interface Album {
   tracks: Tracks
   copyrights: Copyright[]
   external_ids: ExternalIds
-  genres: any[]
+  genres: string[]
   label: string
   popularity: number
 }
@@ -43,12 +43,12 @@ interface ExternalUrls2 {
   spotify: string
 }
 
-interface Tracks {
+export interface Tracks {
   href: string
   limit: number
-  next: any
+  next: string | null
   offset: number
-  previous: any
+  previous: string | null
   total: number
   items: Item[]
 }

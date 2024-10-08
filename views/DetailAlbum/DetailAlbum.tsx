@@ -16,7 +16,14 @@ const DetailAlbum = ({ id }: { id: string }) => {
   } = ENDPOINT
   const { data, isLoading } = useSWR<Album>(ALBUM(id))
 
-  const { name, artists = [], release_date, label, images = [] } = data || {}
+  const {
+    name,
+    artists = [],
+    release_date,
+    label,
+    images = [],
+    tracks = [],
+  } = data || {}
   const { url } =
     images.reduce(
       (maxImage, currentImage) =>
@@ -34,7 +41,7 @@ const DetailAlbum = ({ id }: { id: string }) => {
         artists={artists}
         url={url}
       />
-      <TrackList />
+      <TrackList tracks={tracks} />
       <OtherRelease />
       <NewsLetter />
     </>
