@@ -1,4 +1,4 @@
-export interface GetArtistData {
+export interface ArtistData {
   external_urls: ExternalUrls
   followers: Followers
   genres: string[]

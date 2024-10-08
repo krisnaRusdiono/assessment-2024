@@ -1,4 +1,4 @@
-export interface GetArtistRelatedArtists {
+export interface ArtistRelatedArtists {
   artists: Artist[]
 }
 

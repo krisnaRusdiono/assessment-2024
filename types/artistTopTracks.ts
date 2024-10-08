@@ -1,4 +1,4 @@
-export interface GetArtistTopTracks {
+export interface ArtistTopTracks {
   tracks: Track[]
 }
 

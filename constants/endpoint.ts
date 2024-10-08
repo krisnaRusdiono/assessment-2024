@@ -8,6 +8,9 @@ const ENDPOINT = {
       GET_ARTIST_TOP_TRACKS: (id: string) => `/artists/${id}/top-tracks`,
       GET_ARTIST_RELATED: (id: string) => `/artists/${id}/related-artists`,
     },
+    ALBUMS: {
+      NEW_RELEASE: 'v1/browse/new-releases',
+    },
   },
 } as const
 

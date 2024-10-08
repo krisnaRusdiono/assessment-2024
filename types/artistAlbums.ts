@@ -1,4 +1,4 @@
-export interface GetArtistAlbumsData {
+export interface ArtistAlbums {
   href: string
   limit: number
   next: string

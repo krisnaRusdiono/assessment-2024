@@ -5,11 +5,25 @@ import Button from '@/components/base/Button'
 import useSWR from 'swr'
 import { Skeleton } from '@mui/material'
 import { Fragment } from 'react'
+import ENDPOINT from '@/constants/endpoint'
+import { AlbumNewReleases } from '@/types/albumNewReleases'
 
 const NewReleased = () => {
-  const { data, isLoading = true, error } = useSWR('abc')
+  const {
+    SPOTIFY: {
+      ALBUMS: { NEW_RELEASE },
+    },
+  } = ENDPOINT
+  const params = {
+    limit: 1,
+    offset: 0,
+  }
 
-  console.log({ data, error })
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { data, isLoading = true } = useSWR<AlbumNewReleases>([
+    NEW_RELEASE,
+    { params },
+  ])
 
   return (
     <div
