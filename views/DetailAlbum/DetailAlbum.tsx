@@ -27,7 +27,6 @@ const DetailAlbum = ({ id }: { id: string }) => {
   return (
     <>
       <AlbumCover
-        id={id}
         isLoading={isLoading}
         name={name}
         release_date={release_date}

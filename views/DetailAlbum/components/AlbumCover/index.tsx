@@ -13,7 +13,6 @@ const AlbumCover = ({
   label,
   artists,
   url,
-  id,
 }: {
   isLoading: boolean
   name?: string
@@ -21,7 +20,6 @@ const AlbumCover = ({
   label?: string
   artists: Artist[]
   url: string
-  id: string
 }) => {
   return isLoading ? (
     <div
