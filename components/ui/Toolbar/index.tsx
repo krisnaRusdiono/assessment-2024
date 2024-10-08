@@ -6,6 +6,7 @@ import { Menu, MenuOpen } from '@mui/icons-material'
 import { useSidebarContext } from '@/contexts/Sidebar'
 import MENU from '@/constants/menu'
 import Link from 'next/link'
+import SpotifySSO from '@/components/base/SpotifyLogin'
 
 const Toolbar = () => {
   const { open, toggleOpen } = useSidebarContext()
@@ -31,6 +32,7 @@ const Toolbar = () => {
           </Link>
         ))}
       </div>
+      <SpotifySSO />
     </div>
   )
 }
