@@ -6,18 +6,28 @@ import Toolbar from '@/components/ui/Toolbar'
 import Footer from '@/components/ui/Footer'
 import { SidebarContextProvider } from '@/contexts/Sidebar'
 import { SessionProvider } from 'next-auth/react'
+import { SWRConfig } from 'swr'
+import defaultFetcher from '@/utils/fetcher'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <SessionProvider>
-      <SidebarContextProvider>
-        <Sidebar />
-        <div className="px-8 min-h-screen h-auto">
-          <Toolbar />
-          {children}
-          <Footer />
-        </div>
-      </SidebarContextProvider>
+      <SWRConfig
+        value={{
+          fetcher: defaultFetcher,
+          shouldRetryOnError: false,
+          revalidateOnFocus: true,
+        }}
+      >
+        <SidebarContextProvider>
+          <Sidebar />
+          <div className="px-8 min-h-screen h-auto">
+            <Toolbar />
+            {children}
+            <Footer />
+          </div>
+        </SidebarContextProvider>
+      </SWRConfig>
     </SessionProvider>
   )
 }

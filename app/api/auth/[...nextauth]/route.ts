@@ -21,6 +21,7 @@ const handler = NextAuth({
     },
     async session({ session, token }) {
       // Pass access token to session
+      // eslint-disable-next-line
       ;(session as any).accessToken = token.accessToken
       return session
     },

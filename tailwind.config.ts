@@ -45,6 +45,7 @@ const config: Config = {
         105.5: '26.375rem',
         108: '27rem',
         167.5: '41.875rem',
+        200: '50rem',
       },
       fontWeight: {
         seminormal: '500',
