@@ -11,7 +11,7 @@ const Toolbar = () => {
   const { open, toggleOpen } = useSidebarContext()
 
   return (
-    <div className="flex items-center md:justify-between p-4">
+    <div className="sticky top-0 flex items-center md:justify-between p-4 bg-white z-20">
       <Button
         variant="text"
         onClick={toggleOpen}
