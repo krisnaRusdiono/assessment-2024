@@ -10,6 +10,7 @@ import { SWRConfig } from 'swr'
 import defaultFetcher from '@/utils/fetcher'
 import { ArtistContextProvider } from '@/contexts/Artist'
 import { NewReleaseAlbumContextProvider } from '@/contexts/NewReleasesAlbum'
+import defaultErrorHandler from '@/utils/defaultErrorHandler'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -19,6 +20,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           fetcher: defaultFetcher,
           shouldRetryOnError: false,
           revalidateOnFocus: false,
+          onError: defaultErrorHandler,
         }}
       >
         <NewReleaseAlbumContextProvider>
