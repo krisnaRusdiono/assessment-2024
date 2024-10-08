@@ -9,6 +9,7 @@ import { SessionProvider } from 'next-auth/react'
 import { SWRConfig } from 'swr'
 import defaultFetcher from '@/utils/fetcher'
 import { ArtistContextProvider } from '@/contexts/Artist'
+import { NewReleaseAlbumContextProvider } from '@/contexts/NewReleasesAlbum'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -20,16 +21,18 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           revalidateOnFocus: false,
         }}
       >
-        <ArtistContextProvider>
-          <SidebarContextProvider>
-            <Sidebar />
-            <div className="px-8 min-h-screen h-auto">
-              <Toolbar />
-              {children}
-              <Footer />
-            </div>
-          </SidebarContextProvider>
-        </ArtistContextProvider>
+        <NewReleaseAlbumContextProvider>
+          <ArtistContextProvider>
+            <SidebarContextProvider>
+              <Sidebar />
+              <div className="px-8 min-h-screen h-auto">
+                <Toolbar />
+                {children}
+                <Footer />
+              </div>
+            </SidebarContextProvider>
+          </ArtistContextProvider>
+        </NewReleaseAlbumContextProvider>
       </SWRConfig>
     </SessionProvider>
   )
