@@ -16,7 +16,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
         value={{
           fetcher: defaultFetcher,
           shouldRetryOnError: false,
-          revalidateOnFocus: true,
+          revalidateOnFocus: false,
         }}
       >
         <SidebarContextProvider>
