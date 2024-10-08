@@ -30,7 +30,7 @@ interface Image {
   width: number
 }
 
-interface Artist {
+export interface Artist {
   external_urls: ExternalUrls2
   href: string
   id: string
