@@ -2,7 +2,10 @@ import Typography from '@/components/base/Typography'
 import Button from '@/components/base/Button'
 
 const NewReleased = () => (
-  <div className="flex gap-16 justify-center items-center w-full p-12 bg-[#f2f2f2] h-auto lg:h-175 flex-wrap lg:flex-nowrap">
+  <div
+    className="flex gap-16 justify-center items-center w-full p-12 bg-[#f2f2f2] h-auto lg:h-175 flex-wrap lg:flex-nowrap"
+    id="section-1"
+  >
     <div className="flex flex-col gap-8 w-108">
       <Typography variant="h1" className="pb-8 font-seminormal">
         New Album Released

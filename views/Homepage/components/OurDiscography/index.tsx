@@ -2,7 +2,10 @@ import Typography from '@/components/base/Typography'
 import { ArrowRight } from '@mui/icons-material'
 
 const OurDiscography = () => (
-  <div className="flex flex-col justify-center items-center w-full px-12 py-12 lg:py-32 bg-[#b0b0b0] h-auto flex-wrap lg:flex-nowrap">
+  <div
+    className="flex flex-col justify-center items-center w-full px-12 py-12 lg:py-32 bg-[#b0b0b0] h-auto flex-wrap lg:flex-nowrap"
+    id="section-2"
+  >
     <div className="flex flex-col gap-12 text-center w-full">
       <div className="flex flex-col gap-4">
         <Typography variant="h5" className="font-seminormal">

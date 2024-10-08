@@ -1,7 +1,10 @@
 import Typography from '@/components/base/Typography'
 
 const OtherRelease = () => (
-  <div className="w-full flex flex-col py-14 h-auto min-h-205.25 justify-between items-center">
+  <div
+    className="w-full flex flex-col py-14 h-auto min-h-205.25 justify-between items-center"
+    id="section-3"
+  >
     <Typography variant="h2" className="font-semibold">
       Other Releases
     </Typography>

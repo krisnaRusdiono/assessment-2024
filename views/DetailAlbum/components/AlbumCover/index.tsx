@@ -2,7 +2,10 @@ import Typography from '@/components/base/Typography'
 import Button from '@/components/base/Button'
 
 const AlbumCover = () => (
-  <div className="flex flex-wrap lg:flex-nowrap pp-12 bg-[#f2f2f2]">
+  <div
+    className="flex flex-wrap lg:flex-nowrap pp-12 bg-[#f2f2f2]"
+    id="section-1"
+  >
     <div className="w-full bg-black h-150 flex items-center justify-center p-4">
       <div className="w-80 h-80 bg-white rounded-md"></div>
     </div>

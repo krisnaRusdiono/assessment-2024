@@ -3,7 +3,10 @@ import Button from '@/components/base/Button'
 import { PlayArrow } from '@mui/icons-material'
 
 const TrackList = () => (
-  <div className="w-full h-auto min-h-124 bg-[#d9d9d9] flex items-center justify-center px-8 py-12">
+  <div
+    className="w-full h-auto min-h-124 bg-[#d9d9d9] flex items-center justify-center px-8 py-12"
+    id="section-2"
+  >
     <div className="flex flex-col gap-4">
       <Typography variant="h2" className="font-semibold">
         Track List
