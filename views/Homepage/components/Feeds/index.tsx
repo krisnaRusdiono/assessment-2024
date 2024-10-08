@@ -14,12 +14,12 @@ import { useNewReleaseAlbumContext } from '@/contexts/NewReleasesAlbum'
 const Feeds = () => {
   const { artistName = '' } = useNewReleaseAlbumContext()
   const listIcons = [
-    <Instagram />,
-    <Facebook />,
-    <Twitter />,
-    <Reddit />,
-    <YouTube />,
-    <Google />,
+    <Instagram key="Instagram-icon" />,
+    <Facebook key="Facebook-icon" />,
+    <Twitter key="Twitter-icon" />,
+    <Reddit key="Reddit-icon" />,
+    <YouTube key="YouTube-icon" />,
+    <Google key="Google-icon" />,
   ]
 
   return (
