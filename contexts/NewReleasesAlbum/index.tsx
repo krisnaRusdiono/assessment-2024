@@ -10,6 +10,8 @@ import { AlbumNewReleases } from '@/types/albumNewReleases'
 
 export interface NewReleasesAlbumContextType {
   dataAlbum?: AlbumNewReleases
+  artistId?: string
+  artistName?: string
   setDataAlbum: (dataAlbum: AlbumNewReleases) => void
 }
 
@@ -23,6 +25,11 @@ const NewReleaseAlbumContextProvider = ({
   children: ReactNode
 }) => {
   const [albumData, setAlbumData] = useState<AlbumNewReleases>()
+  const { albums } = albumData || {}
+  const { items = [] } = albums || {}
+  const { artists = [] } = items.length > 0 ? items[0] : {}
+  const { id, name: artistName } = artists.length > 0 ? artists[0] : {}
+
   const setDataAlbum = useCallback((dataAlbum: AlbumNewReleases) => {
     setAlbumData(dataAlbum)
   }, [])
@@ -31,8 +38,10 @@ const NewReleaseAlbumContextProvider = ({
     () => ({
       dataAlbum: albumData,
       setDataAlbum,
+      artistId: id,
+      artistName,
     }),
-    [albumData, setDataAlbum]
+    [albumData, artistName, id, setDataAlbum]
   )
 
   return (

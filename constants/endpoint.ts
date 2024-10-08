@@ -10,6 +10,7 @@ const ENDPOINT = {
     },
     ALBUMS: {
       NEW_RELEASE: 'v1/browse/new-releases',
+      ARTIST_ALBUMS: (artistId: string) => `v1/artists/${artistId}/albums`,
     },
   },
 } as const
