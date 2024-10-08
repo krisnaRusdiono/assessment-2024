@@ -3,9 +3,9 @@ import TrackList from './components/TrackList'
 import OtherRelease from './components/OtherRelease'
 import NewsLetter from './components/NewsLetter'
 
-const DetailAlbum = () => (
+const DetailAlbum = ({ id }: { id: string }) => (
   <>
-    <AlbumCover />
+    <AlbumCover id={id} />
     <TrackList />
     <OtherRelease />
     <NewsLetter />
