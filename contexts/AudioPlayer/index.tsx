@@ -22,8 +22,8 @@ const AudioPlayerContext = createContext<AudioPlayerContextTypes | undefined>(
 )
 
 const AudioPlayerContextProvider = ({ children }: { children: ReactNode }) => {
-  const [open, setOpen] = useState<boolean>(false)
-  const [isPlaying, setIsPlaying] = useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(true)
+  const [isPlaying, setIsPlaying] = useState<boolean>(true)
   const [musicName, setMusicName] = useState<string>('')
   const [musicId, setMusicId] = useState<string>('')
 
