@@ -68,29 +68,22 @@ const OurDiscography = () => {
           {items.map(({ name, id, images }) => {
             const { url } = findLargestImage(images) || {}
             return (
-              <div
-                className="w-67.5 flex flex-col bg-white cursor-pointer hover:drop-shadow-xl transition-all [&>div>div]:hover:scale-125 [&>div>div]:hover:opacity-100"
-                key={id}
-              >
-                <div
-                  className="w-full h-67.5 bg-neutral-900 relative bg-center bg-no-repeat bg-cover"
-                  style={{
-                    backgroundImage: `url("${url}")`,
-                  }}
-                >
-                  <div className="absolute left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 h-16 w-16 rounded-lg bg-white transition-all flex items-center justify-center opacity-25">
-                    <PlayArrow className="w-10 h-10" />
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col justify-between items-start h-41.5">
-                  <Typography variant="h6">{name}</Typography>
-                  <Link href={`detail-album/${id}`}>
+              <Link href={`detail-album/${id}`} key={id}>
+                <div className="w-67.5 flex flex-col bg-white cursor-pointer hover:drop-shadow-xl transition-all [&>div>div]:hover:scale-125 [&>div>div]:hover:opacity-100 [&>span]:hover:scale-110 overflow-hidden">
+                  <span
+                    className="w-full h-67.5 bg-neutral-900 relative bg-center bg-no-repeat bg-cover transition-all duration-500"
+                    style={{
+                      backgroundImage: `url("${url}")`,
+                    }}
+                  />
+                  <div className="p-6 flex flex-col justify-between items-start h-41.5">
+                    <Typography variant="h6">{name}</Typography>
                     <Typography variant="body2" className="flex items-center">
                       Listen Now <ArrowRight />
                     </Typography>
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>
