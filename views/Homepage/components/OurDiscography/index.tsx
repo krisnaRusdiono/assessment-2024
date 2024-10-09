@@ -64,7 +64,7 @@ const OurDiscography = () => {
             {`Check ${artistName} latest albums and single below so you wont missing out`}
           </Typography>
         </div>
-        <div className="flex gap-8 justify-center flex-wrap lg:flex-nowrap">
+        <div className="flex gap-8 justify-center flex-wrap lg:flex-nowrap overflow-auto">
           {items.map(({ name, id, images }) => {
             const { url } = findLargestImage(images) || {}
             return (

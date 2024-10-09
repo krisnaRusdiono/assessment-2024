@@ -66,7 +66,7 @@ const TrackList = ({ tracks, isLoading }: TrackListProps) => {
               items.map(({ name, duration_ms, id, artists, type }, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 w-auto md:w-167.5 justify-between"
+                  className="flex items-center gap-4 w-auto md:w-167.5 justify-between flex-wrap lg:flex-nowrap"
                 >
                   <div className="flex gap-4 items-center">
                     <Typography variant="h6">{index + 1}</Typography>

@@ -23,12 +23,13 @@ const NewsLetter = () => {
             fullWidth
             value={email}
             onChange={handleChangeEmail}
+            className="w-auto md:w-full"
           />
         </div>
         <Button
           variant="contained"
           color="primary"
-          className={`w-full py-4 ${!checkEmailValidity(email) && 'opacity-50'} transition-all`}
+          className={`w-60 md:w-full py-4 ${!checkEmailValidity(email) && 'opacity-50'} transition-all`}
           onClick={handleJoin}
           disabled={!checkEmailValidity(email)}
         >
