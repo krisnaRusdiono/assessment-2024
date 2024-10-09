@@ -6,6 +6,7 @@ import { Skeleton } from '@mui/material'
 import { Pause, PlayArrow } from '@mui/icons-material'
 import { AlbumCoverProps } from './index.types'
 import { useAudioPlayerContext } from '@/contexts/AudioPlayer'
+import handleShare from '@/helpers/shareAction'
 
 const AlbumCover = ({
   isLoading,
@@ -16,6 +17,9 @@ const AlbumCover = ({
   url,
 }: AlbumCoverProps) => {
   const { start, isPlaying } = useAudioPlayerContext()
+  const handleClickShare = async (data: ShareData) => {
+    await handleShare(data)
+  }
 
   return isLoading ? (
     <div
@@ -92,7 +96,17 @@ const AlbumCover = ({
             </Typography>
           </div>
           <div className="flex gap-4">
-            <Button variant="outlined" color="secondary" className="w-full">
+            <Button
+              variant="outlined"
+              color="secondary"
+              className="w-full"
+              onClick={() =>
+                handleClickShare({
+                  title: `${name} - ${artists.map((i) => i.name).join(', ')}`,
+                  text: `Check out this now!`,
+                })
+              }
+            >
               Share
             </Button>
             <Button variant="contained" color="primary" className="w-full">

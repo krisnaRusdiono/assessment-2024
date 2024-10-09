@@ -5,10 +5,14 @@ import msToTime from '@/helpers/msToTime'
 import { Skeleton } from '@mui/material'
 import { TrackListProps } from './index.types'
 import { useAudioPlayerContext } from '@/contexts/AudioPlayer'
+import handleShare from '@/helpers/shareAction'
 
 const TrackList = ({ tracks, isLoading }: TrackListProps) => {
   const { items = [] } = tracks || {}
   const { start, isPlaying, musicName } = useAudioPlayerContext()
+  const handleClickShare = async (data: ShareData) => {
+    await handleShare(data)
+  }
 
   return (
     <div
@@ -59,7 +63,7 @@ const TrackList = ({ tracks, isLoading }: TrackListProps) => {
         ) : (
           <div className="flex flex-col gap-2">
             {items.length ? (
-              items.map(({ name, duration_ms, id }, index) => (
+              items.map(({ name, duration_ms, id, artists, type }, index) => (
                 <div
                   key={index}
                   className="flex items-center gap-4 w-auto md:w-167.5 justify-between"
@@ -88,6 +92,12 @@ const TrackList = ({ tracks, isLoading }: TrackListProps) => {
                       variant="outlined"
                       color="secondary"
                       className="bg-transparent px-12"
+                      onClick={() =>
+                        handleClickShare({
+                          title: `${name} - ${artists.map((i) => i.name).join(', ')}`,
+                          text: `Check out this awesome ${type} now!}`,
+                        })
+                      }
                     >
                       Share
                     </Button>
