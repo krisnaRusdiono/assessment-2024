@@ -1,26 +1,10 @@
 'use client'
 
 import Typography from '@/components/base/Typography'
-import {
-  Facebook,
-  Google,
-  Instagram,
-  Reddit,
-  Twitter,
-  YouTube,
-} from '@mui/icons-material'
-import { useNewReleaseAlbumContext } from '@/contexts/NewReleasesAlbum'
+import useFeeds from './index.hooks'
 
 const Feeds = () => {
-  const { artistName = '' } = useNewReleaseAlbumContext()
-  const listIcons = [
-    <Instagram key="Instagram-icon" />,
-    <Facebook key="Facebook-icon" />,
-    <Twitter key="Twitter-icon" />,
-    <Reddit key="Reddit-icon" />,
-    <YouTube key="YouTube-icon" />,
-    <Google key="Google-icon" />,
-  ]
+  const { artistName, listIcons } = useFeeds()
 
   return (
     <div
@@ -34,12 +18,12 @@ const Feeds = () => {
           </Typography>
         </div>
         <div className="flex gap-8 flex-wrap lg:flex-nowrap justify-center">
-          {new Array(6).fill(null).map((_, index) => (
+          {listIcons.map((_, index) => (
             <div
               className="w-20 h-20 rounded-full cursor-pointer hover:drop-shadow-lg transition-all flex items-center justify-center [&>*]:w-9 [&>*]:h-9 [&>*]:fill-neutral-50 bg-black [&>*]:hover:scale-125 [&>*]:transition-all [&>*]:duration-500"
               key={index}
             >
-              {listIcons[index]}
+              {listIcons[index].element}
             </div>
           ))}
         </div>
