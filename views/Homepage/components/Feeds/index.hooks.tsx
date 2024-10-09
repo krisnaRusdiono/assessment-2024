@@ -13,7 +13,7 @@ const useFeeds = () => {
   const { artistName = '' } = useNewReleaseAlbumContext()
   const listIcons: ListIcons[] = [
     {
-      href: '',
+      href: 'https://instagram.com/',
       element: <Instagram key="Instagram-icon" />,
     },
     {
