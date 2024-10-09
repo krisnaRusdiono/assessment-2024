@@ -2,30 +2,13 @@
 
 import Typography from '@/components/base/Typography'
 import { ArrowRight, PlayArrow } from '@mui/icons-material'
-import useSWR from 'swr'
-import ENDPOINT from '@/constants/endpoint'
-import { useNewReleaseAlbumContext } from '@/contexts/NewReleasesAlbum'
-import { ArtistAlbums } from '@/types/artistAlbums'
 import { Skeleton } from '@mui/material'
 import Link from 'next/link'
 import findLargestImage from '@/helpers/findLargestImage'
+import useOurDiscography from './index.hooks'
 
 const OurDiscography = () => {
-  const { artistId = '', artistName = '' } = useNewReleaseAlbumContext()
-  const {
-    SPOTIFY: {
-      ALBUMS: { ARTIST_ALBUMS },
-    },
-  } = ENDPOINT
-  const params = {
-    limit: 4,
-    offset: 0,
-  }
-  const { data, isLoading } = useSWR<ArtistAlbums>([
-    ARTIST_ALBUMS(artistId),
-    { params },
-  ])
-  const { items = [] } = data || {}
+  const { isLoading, artistName, items } = useOurDiscography()
 
   if (isLoading) {
     return (

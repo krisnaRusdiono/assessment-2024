@@ -2,38 +2,13 @@
 
 import Typography from '@/components/base/Typography'
 import Button from '@/components/base/Button'
-import useSWR from 'swr'
 import { Skeleton } from '@mui/material'
-import { useEffect } from 'react'
-import ENDPOINT from '@/constants/endpoint'
-import { AlbumNewReleases } from '@/types/albumNewReleases'
 import Link from 'next/link'
-import { useNewReleaseAlbumContext } from '@/contexts/NewReleasesAlbum'
 import findLargestImage from '@/helpers/findLargestImage'
+import useNewReleased from './index.hooks'
 
 const NewReleased = () => {
-  const { setDataAlbum } = useNewReleaseAlbumContext()
-  const {
-    SPOTIFY: {
-      ALBUMS: { NEW_RELEASE },
-    },
-  } = ENDPOINT
-  const params = {
-    limit: 1,
-    offset: 0,
-  }
-
-  const { data, isLoading = true } = useSWR<AlbumNewReleases>([
-    NEW_RELEASE,
-    { params },
-  ])
-
-  const { albums } = data || {}
-  const { items = [] } = albums || {}
-
-  useEffect(() => {
-    if (data) setDataAlbum(data)
-  }, [data, setDataAlbum])
+  const { isLoading, items } = useNewReleased()
 
   if (isLoading) {
     return (
