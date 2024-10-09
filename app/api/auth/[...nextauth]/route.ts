@@ -1,6 +1,10 @@
 import NextAuth from 'next-auth'
 import SpotifyProvider from 'next-auth/providers/spotify'
-import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from '@/constants/config'
+import {
+  NEXT_AUTH_SECRET,
+  SPOTIFY_CLIENT_ID,
+  SPOTIFY_CLIENT_SECRET,
+} from '@/constants/config'
 
 const handler = NextAuth({
   providers: [
@@ -10,7 +14,7 @@ const handler = NextAuth({
       // authorization: 'https://accounts.spotify.com/authorize?scope=user-read-email,playlist-read-private',
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: NEXT_AUTH_SECRET,
   callbacks: {
     async jwt({ token, account }) {
       // Store the access token
