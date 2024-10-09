@@ -3,7 +3,7 @@
 import Typography from '@/components/base/Typography'
 import Button from '@/components/base/Button'
 import { Skeleton } from '@mui/material'
-import { PlayArrow } from '@mui/icons-material'
+import { Pause, PlayArrow } from '@mui/icons-material'
 import { AlbumCoverProps } from './index.types'
 import { useAudioPlayerContext } from '@/contexts/AudioPlayer'
 
@@ -15,7 +15,7 @@ const AlbumCover = ({
   artists,
   url,
 }: AlbumCoverProps) => {
-  const { start } = useAudioPlayerContext()
+  const { start, isPlaying } = useAudioPlayerContext()
 
   return isLoading ? (
     <div
@@ -58,19 +58,24 @@ const AlbumCover = ({
       id="section-1"
     >
       <div
-        className="w-full bg-black h-150 flex items-center bg-no-repeat bg-cover bg-center justify-center p-4 [&>div]:hover:scale-125 [&>div]:duration-500 [&>div]:transition-all [&>div]:hover:opacity-70"
+        className="w-full bg-black h-150 flex items-center bg-no-repeat bg-cover bg-center justify-center p-4 [&>button]:hover:scale-125 [&>button]:duration-500 [&>button]:transition-all [&>button]:hover:opacity-80"
         style={{
           backgroundImage: `url("${url}")`,
         }}
       >
-        <div className="w-80 h-80 bg-white rounded-full flex items-center justify-center opacity-10">
-          <Button
-            variant="text"
-            onClick={() => start(String(name), String(name))}
-          >
-            <PlayArrow className="w-24 h-24" />
-          </Button>
-        </div>
+        <Button
+          variant="text"
+          onClick={() =>
+            start(`${String(name)} - MIX`, `${String(name)} - MIX`)
+          }
+          className="opacity-20 duration-500 transition-all rounded-full bg-neutral-50"
+        >
+          {isPlaying ? (
+            <Pause className="w-24 h-24 fill-neutral-900" />
+          ) : (
+            <PlayArrow className="w-24 h-24 fill-neutral-900" />
+          )}
+        </Button>
       </div>
       <div className="w-full h-150 flex items-center justify-center p-40.">
         <div className="w-80 h-80 flex flex-col gap-8 justify-center">

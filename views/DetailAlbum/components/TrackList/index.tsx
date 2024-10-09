@@ -1,6 +1,6 @@
 import Typography from '@/components/base/Typography'
 import Button from '@/components/base/Button'
-import { PlayArrow } from '@mui/icons-material'
+import { Pause, PlayArrow } from '@mui/icons-material'
 import msToTime from '@/helpers/msToTime'
 import { Skeleton } from '@mui/material'
 import { TrackListProps } from './index.types'
@@ -8,7 +8,7 @@ import { useAudioPlayerContext } from '@/contexts/AudioPlayer'
 
 const TrackList = ({ tracks, isLoading }: TrackListProps) => {
   const { items = [] } = tracks || {}
-  const { start } = useAudioPlayerContext()
+  const { start, isPlaying, musicName } = useAudioPlayerContext()
 
   return (
     <div
@@ -72,7 +72,11 @@ const TrackList = ({ tracks, isLoading }: TrackListProps) => {
                       className="bg-transparent"
                       onClick={() => start(id, name)}
                     >
-                      <PlayArrow />
+                      {isPlaying && musicName === name ? (
+                        <Pause />
+                      ) : (
+                        <PlayArrow />
+                      )}
                     </Button>
                     <Typography variant="h6">{name}</Typography>
                   </div>

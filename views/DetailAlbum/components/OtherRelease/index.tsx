@@ -48,7 +48,7 @@ const OtherRelease = () => {
                       backgroundImage: `url("${url}")`,
                     }}
                   />
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2 justify-between">
                     <Typography variant="h6" className="text-2xl">
                       {name}
                     </Typography>

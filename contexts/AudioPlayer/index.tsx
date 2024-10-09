@@ -36,7 +36,14 @@ const AudioPlayerContextProvider = ({ children }: { children: ReactNode }) => {
 
   const togglePause = useCallback(() => setIsPlaying(!isPlaying), [isPlaying])
 
-  const togglePlayer = useCallback(() => setOpen(!open), [open])
+  const togglePlayer = useCallback(() => {
+    if (open) {
+      setIsPlaying(false)
+      setMusicName('')
+      setMusicId('')
+    }
+    setOpen(!open)
+  }, [open])
 
   const value = useMemo(
     () => ({
