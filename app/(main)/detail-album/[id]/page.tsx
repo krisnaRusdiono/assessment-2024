@@ -1,4 +1,4 @@
-import DetailAlbum from '@/views/DetailAlbum/DetailAlbum'
+import DetailAlbum from '@/views/DetailAlbum'
 
 const DetailAlbumPage = ({ params: { id } }: { params: { id: string } }) => (
   <DetailAlbum id={id} />

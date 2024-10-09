@@ -4,7 +4,7 @@ import Typography from '@/components/base/Typography'
 import Button from '@/components/base/Button'
 import { Skeleton } from '@mui/material'
 import { PlayArrow } from '@mui/icons-material'
-import { Artist } from '@/types/album'
+import { AlbumCoverProps } from './index.types'
 
 const AlbumCover = ({
   isLoading,
@@ -13,14 +13,7 @@ const AlbumCover = ({
   label,
   artists,
   url,
-}: {
-  isLoading: boolean
-  name?: string
-  release_date?: string
-  label?: string
-  artists: Artist[]
-  url: string
-}) => {
+}: AlbumCoverProps) => {
   return isLoading ? (
     <div
       className="flex flex-wrap lg:flex-nowrap pp-12 bg-[#f2f2f2]"

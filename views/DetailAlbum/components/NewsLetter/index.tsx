@@ -1,27 +1,13 @@
 import Typography from '@/components/base/Typography'
 import TextField from '@/components/base/TextField'
 import Button from '@/components/base/Button'
-import { ChangeEvent, useState } from 'react'
 import { Modal } from '@mui/material'
 import checkEmailValidity from '@/helpers/checkEmailValidity'
+import useNewsLetter from './index.hooks'
 
 const NewsLetter = () => {
-  const [open, setOpen] = useState<boolean>(false)
-  const [email, setEmail] = useState<string>('')
-
-  const toggleModal = () => {
-    setOpen(!open)
-  }
-
-  const handleChangeEmail = ({
-    target: { value },
-  }: ChangeEvent<HTMLInputElement>) => {
-    setEmail(value)
-  }
-
-  const handleJoin = () => {
-    toggleModal()
-  }
+  const { open, toggleModal, handleJoin, email, handleChangeEmail } =
+    useNewsLetter()
 
   return (
     <div

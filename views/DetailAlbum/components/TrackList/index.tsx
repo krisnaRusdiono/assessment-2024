@@ -1,18 +1,13 @@
 import Typography from '@/components/base/Typography'
 import Button from '@/components/base/Button'
 import { PlayArrow } from '@mui/icons-material'
-import { Tracks } from '@/types/album'
 import msToTime from '@/helpers/msToTime'
 import { Skeleton } from '@mui/material'
+import { TrackListProps } from './index.types'
 
-const TrackList = ({
-  tracks,
-  isLoading,
-}: {
-  tracks?: Tracks
-  isLoading: boolean
-}) => {
+const TrackList = ({ tracks, isLoading }: TrackListProps) => {
   const { items = [] } = tracks || {}
+
   return (
     <div
       className="w-full h-auto min-h-124 bg-[#d9d9d9] flex items-center justify-center px-8 py-12"

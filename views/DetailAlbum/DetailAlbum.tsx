@@ -4,28 +4,11 @@ import AlbumCover from './components/AlbumCover'
 import TrackList from './components/TrackList'
 import OtherRelease from './components/OtherRelease'
 import NewsLetter from './components/NewsLetter'
-import ENDPOINT from '@/constants/endpoint'
-import useSWR from 'swr'
-import { Album } from '@/types/album'
-import findLargestImage from '@/helpers/findLargestImage'
+import useDetailAlbum from './DetailAlbum.hooks'
 
 const DetailAlbum = ({ id }: { id: string }) => {
-  const {
-    SPOTIFY: {
-      ALBUMS: { ALBUM },
-    },
-  } = ENDPOINT
-  const { data, isLoading } = useSWR<Album>(ALBUM(id))
-
-  const {
-    name,
-    artists = [],
-    release_date,
-    label,
-    images = [],
-    tracks,
-  } = data || {}
-  const { url } = findLargestImage(images) || {}
+  const { isLoading, name, release_date, label, artists, url, tracks } =
+    useDetailAlbum({ id })
 
   return (
     <>

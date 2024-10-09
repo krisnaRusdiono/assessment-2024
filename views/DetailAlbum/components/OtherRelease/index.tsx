@@ -1,29 +1,11 @@
 import Typography from '@/components/base/Typography'
-import ENDPOINT from '@/constants/endpoint'
-import useSWR from 'swr'
-import { AlbumNewReleases } from '@/types/albumNewReleases'
 import { Skeleton } from '@mui/material'
 import Link from 'next/link'
 import findLargestImage from '@/helpers/findLargestImage'
+import useOtherRelease from './index.hooks'
 
 const OtherRelease = () => {
-  const {
-    SPOTIFY: {
-      ALBUMS: { NEW_RELEASE },
-    },
-  } = ENDPOINT
-  const params = {
-    limit: 3,
-    offset: Math.floor(Math.random() * 50),
-  }
-
-  const { data, isLoading = true } = useSWR<AlbumNewReleases>([
-    NEW_RELEASE,
-    { params },
-  ])
-
-  const { albums } = data || {}
-  const { items = [] } = albums || {}
+  const { isLoading, items } = useOtherRelease()
 
   return (
     <div
