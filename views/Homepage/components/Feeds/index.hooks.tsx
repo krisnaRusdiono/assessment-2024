@@ -11,9 +11,9 @@ import { ListIcons } from './index.types'
 
 const useFeeds = () => {
   const { artistName = '' } = useNewReleaseAlbumContext()
-  const listIcons: ListIcons[] = [
+  const listSocial: ListIcons[] = [
     {
-      href: 'https://instagram.com/',
+      href: 'https://instagram.com/q=',
       element: <Instagram key="Instagram-icon" />,
     },
     {
@@ -21,7 +21,7 @@ const useFeeds = () => {
       element: <Facebook key="Facebook-icon" />,
     },
     {
-      href: 'https://x.com/search',
+      href: 'https://x.com/search=',
       element: <Twitter key="Twitter-icon" />,
     },
     {
@@ -40,7 +40,7 @@ const useFeeds = () => {
 
   return {
     artistName,
-    listIcons,
+    listSocial,
   }
 }
 

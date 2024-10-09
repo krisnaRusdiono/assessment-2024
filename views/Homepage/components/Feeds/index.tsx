@@ -5,7 +5,7 @@ import useFeeds from './index.hooks'
 import Link from 'next/link'
 
 const Feeds = () => {
-  const { artistName, listIcons } = useFeeds()
+  const { artistName, listSocial } = useFeeds()
 
   return (
     <div
@@ -19,8 +19,8 @@ const Feeds = () => {
           </Typography>
         </div>
         <div className="flex gap-8 flex-wrap lg:flex-nowrap justify-center">
-          {listIcons.map(({ element, href }, index) => (
-            <Link href={href} key={index}>
+          {listSocial.map(({ element, href }, index) => (
+            <Link href={`${href}${artistName}`} key={index}>
               <div className="w-20 h-20 rounded-full cursor-pointer hover:drop-shadow-lg transition-all flex items-center justify-center [&>*]:w-9 [&>*]:h-9 [&>*]:fill-neutral-50 bg-black [&>*]:hover:scale-125 [&>*]:transition-all [&>*]:duration-500">
                 {element}
               </div>
