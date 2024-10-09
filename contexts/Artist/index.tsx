@@ -8,11 +8,7 @@ import {
 } from 'react'
 import ARTIST_LIST from '@/constants/artistList'
 import searchArtistNormalizers from '@/normalizers/searchArtist'
-
-export interface ArtistContextTypes {
-  selectedArtist: string
-  onChangeArtist: (artistId: string) => void
-}
+import { ArtistContextTypes } from './index.types'
 
 const ArtistContext = createContext<ArtistContextTypes | undefined>(undefined)
 

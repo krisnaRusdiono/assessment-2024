@@ -6,24 +6,15 @@ import {
   useMemo,
   useState,
 } from 'react'
-
-export interface AudioPlayerContextTypes {
-  isPlaying: boolean
-  musicName: string
-  musicId: string
-  start: (musicId: string, musicName: string) => void
-  togglePause: () => void
-  open: boolean
-  togglePlayer: () => void
-}
+import { AudioPlayerContextTypes } from './index.types'
 
 const AudioPlayerContext = createContext<AudioPlayerContextTypes | undefined>(
   undefined
 )
 
 const AudioPlayerContextProvider = ({ children }: { children: ReactNode }) => {
-  const [open, setOpen] = useState<boolean>(true)
-  const [isPlaying, setIsPlaying] = useState<boolean>(true)
+  const [open, setOpen] = useState<boolean>(false)
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [musicName, setMusicName] = useState<string>('')
   const [musicId, setMusicId] = useState<string>('')
 

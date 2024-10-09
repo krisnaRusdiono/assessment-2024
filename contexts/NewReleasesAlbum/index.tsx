@@ -7,13 +7,7 @@ import {
   useState,
 } from 'react'
 import { AlbumNewReleases } from '@/types/albumNewReleases'
-
-export interface NewReleasesAlbumContextType {
-  dataAlbum?: AlbumNewReleases
-  artistId?: string
-  artistName?: string
-  setDataAlbum: (dataAlbum: AlbumNewReleases) => void
-}
+import { NewReleasesAlbumContextType } from './index.types'
 
 const NewReleaseAlbumContext = createContext<
   NewReleasesAlbumContextType | undefined
