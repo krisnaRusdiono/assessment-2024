@@ -1,11 +1,7 @@
 'use client'
 
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react'
-
-export interface SiderbarContextTypes {
-  open: boolean
-  toggleOpen: () => void
-}
+import { SiderbarContextTypes } from './index.types'
 
 const SiderbarContext = createContext<SiderbarContextTypes | undefined>(
   undefined
