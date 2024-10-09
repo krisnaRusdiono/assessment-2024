@@ -10,45 +10,20 @@ import {
 } from '@mui/icons-material'
 import Typography from '@/components/base/Typography'
 import { Drawer, Slider } from '@mui/material'
-import { useEffect, useState } from 'react'
-import { useAudioPlayerContext } from '@/contexts/AudioPlayer'
 import Button from '@/components/base/Button'
+import useAudioPlayer from './index.hooks'
 
 const AudioPlayer = () => {
-  const { musicName, togglePause, open, togglePlayer, isPlaying } =
-    useAudioPlayerContext()
-  const [valueSlider, setValueSlider] = useState<number>(0)
-  const [valueVolume, setValueVolume] = useState<number>(70)
-
-  const handleChangeSlider = ({ target }: Event) => {
-    const { value } = target as unknown as HTMLInputElement
-    setValueSlider(Number(value))
-  }
-
-  const handleChangeVolume = ({ target }: Event) => {
-    const { value } = target as unknown as HTMLInputElement
-    setValueVolume(Number(value))
-  }
-
-  useEffect(() => {
-    const timeBox = 100
-    let time = 0
-    const timer = setInterval(() => {
-      if (!isPlaying) return
-
-      if (time <= timeBox) {
-        time += 1
-        setValueSlider(time)
-        return
-      }
-
-      clearInterval(timer)
-    }, 1000)
-
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [isPlaying])
+  const {
+    open,
+    togglePlayer,
+    musicName,
+    togglePause,
+    valueSlider,
+    valueVolume,
+    handleChangeSlider,
+    handleChangeVolume,
+  } = useAudioPlayer()
 
   return (
     <Drawer open={open} anchor="bottom" onClose={togglePlayer}>
