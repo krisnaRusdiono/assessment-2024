@@ -19,7 +19,11 @@
     "@mui/material": "^6.1.2",
     "@mui/material-nextjs": "^6.1.2",
     "@mui/styled-engine-sc": "^6.1.2",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "axios": "^1.7.7",
+    "cookies-next": "^4.2.1",
     "next": "14.2.14",
+    "next-auth": "^4.24.8",
     "react": "^18",
     "react-dom": "^18",
     "styled-components": "^6.1.13",
@@ -41,6 +45,9 @@
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,jsx,ts,tsx,json,css,md}": [
+      "npm run prettier:fix",
+      "git add"
+    ]
   }
 }
