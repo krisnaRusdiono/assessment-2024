@@ -45,7 +45,7 @@ interface ExternalUrls2 {
   spotify: string
 }
 
-interface Image {
+export interface Image {
   height: number
   url: string
   width: number

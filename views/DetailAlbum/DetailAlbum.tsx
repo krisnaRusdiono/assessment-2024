@@ -7,6 +7,7 @@ import NewsLetter from './components/NewsLetter'
 import ENDPOINT from '@/constants/endpoint'
 import useSWR from 'swr'
 import { Album } from '@/types/album'
+import findLargestImage from '@/helpers/findLargestImage'
 
 const DetailAlbum = ({ id }: { id: string }) => {
   const {
@@ -24,12 +25,7 @@ const DetailAlbum = ({ id }: { id: string }) => {
     images = [],
     tracks,
   } = data || {}
-  const { url } =
-    images.reduce(
-      (maxImage, currentImage) =>
-        currentImage.height > maxImage.height ? currentImage : maxImage,
-      images[0]
-    ) || {}
+  const { url } = findLargestImage(images) || {}
 
   return (
     <>

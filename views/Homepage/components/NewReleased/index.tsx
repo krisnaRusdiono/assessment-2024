@@ -9,6 +9,7 @@ import ENDPOINT from '@/constants/endpoint'
 import { AlbumNewReleases } from '@/types/albumNewReleases'
 import Link from 'next/link'
 import { useNewReleaseAlbumContext } from '@/contexts/NewReleasesAlbum'
+import findLargestImage from '@/helpers/findLargestImage'
 
 const NewReleased = () => {
   const { setDataAlbum } = useNewReleaseAlbumContext()
@@ -52,11 +53,7 @@ const NewReleased = () => {
     <>
       {items.length ? (
         items.map(({ artists, name, release_date, id, images }) => {
-          const { url } = images.reduce(
-            (maxImage, currentImage) =>
-              currentImage.height > maxImage.height ? currentImage : maxImage,
-            images[0]
-          )
+          const { url } = findLargestImage(images) || {}
           return (
             <div
               key={id}

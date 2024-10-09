@@ -8,6 +8,7 @@ import { useNewReleaseAlbumContext } from '@/contexts/NewReleasesAlbum'
 import { ArtistAlbums } from '@/types/artistAlbums'
 import { Skeleton } from '@mui/material'
 import Link from 'next/link'
+import findLargestImage from '@/helpers/findLargestImage'
 
 const OurDiscography = () => {
   const { artistId = '', artistName = '' } = useNewReleaseAlbumContext()
@@ -82,11 +83,7 @@ const OurDiscography = () => {
         </div>
         <div className="flex gap-8 justify-center flex-wrap lg:flex-nowrap">
           {items.map(({ name, id, images }) => {
-            const { url } = images.reduce(
-              (maxImage, currentImage) =>
-                currentImage.height > maxImage.height ? currentImage : maxImage,
-              images[0]
-            )
+            const { url } = findLargestImage(images) || {}
             return (
               <div
                 className="w-67.5 flex flex-col bg-white cursor-pointer hover:drop-shadow-xl transition-all [&>div>div]:hover:scale-125 [&>div>div]:hover:opacity-100"
