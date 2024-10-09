@@ -5,6 +5,7 @@ import Button from '@/components/base/Button'
 import { Skeleton } from '@mui/material'
 import { PlayArrow } from '@mui/icons-material'
 import { AlbumCoverProps } from './index.types'
+import { useAudioPlayerContext } from '@/contexts/AudioPlayer'
 
 const AlbumCover = ({
   isLoading,
@@ -14,6 +15,8 @@ const AlbumCover = ({
   artists,
   url,
 }: AlbumCoverProps) => {
+  const { start } = useAudioPlayerContext()
+
   return isLoading ? (
     <div
       className="flex flex-wrap lg:flex-nowrap pp-12 bg-[#f2f2f2]"
@@ -61,7 +64,12 @@ const AlbumCover = ({
         }}
       >
         <div className="w-80 h-80 bg-white rounded-full flex items-center justify-center opacity-10">
-          <PlayArrow className="w-24 h-24" />
+          <Button
+            variant="text"
+            onClick={() => start(String(name), String(name))}
+          >
+            <PlayArrow className="w-24 h-24" />
+          </Button>
         </div>
       </div>
       <div className="w-full h-150 flex items-center justify-center p-40.">

@@ -11,6 +11,7 @@ import defaultFetcher from '@/utils/fetcher'
 import { ArtistContextProvider } from '@/contexts/Artist'
 import { NewReleaseAlbumContextProvider } from '@/contexts/NewReleasesAlbum'
 import defaultErrorHandler from '@/utils/defaultErrorHandler'
+import { AudioPlayerContextProvider } from '@/contexts/AudioPlayer'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -25,14 +26,16 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
       >
         <NewReleaseAlbumContextProvider>
           <ArtistContextProvider>
-            <SidebarContextProvider>
-              <Sidebar />
-              <div className="px-8 min-h-screen h-auto">
-                <Toolbar />
-                {children}
-                <Footer />
-              </div>
-            </SidebarContextProvider>
+            <AudioPlayerContextProvider>
+              <SidebarContextProvider>
+                <Sidebar />
+                <div className="px-8 min-h-screen h-auto">
+                  <Toolbar />
+                  {children}
+                  <Footer />
+                </div>
+              </SidebarContextProvider>
+            </AudioPlayerContextProvider>
           </ArtistContextProvider>
         </NewReleaseAlbumContextProvider>
       </SWRConfig>

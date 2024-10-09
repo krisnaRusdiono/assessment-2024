@@ -4,9 +4,11 @@ import { PlayArrow } from '@mui/icons-material'
 import msToTime from '@/helpers/msToTime'
 import { Skeleton } from '@mui/material'
 import { TrackListProps } from './index.types'
+import { useAudioPlayerContext } from '@/contexts/AudioPlayer'
 
 const TrackList = ({ tracks, isLoading }: TrackListProps) => {
   const { items = [] } = tracks || {}
+  const { start } = useAudioPlayerContext()
 
   return (
     <div
@@ -57,7 +59,7 @@ const TrackList = ({ tracks, isLoading }: TrackListProps) => {
         ) : (
           <div className="flex flex-col gap-2">
             {items.length ? (
-              items.map(({ name, duration_ms }, index) => (
+              items.map(({ name, duration_ms, id }, index) => (
                 <div
                   key={index}
                   className="flex items-center gap-4 w-auto md:w-167.5 justify-between"
@@ -68,6 +70,7 @@ const TrackList = ({ tracks, isLoading }: TrackListProps) => {
                       variant="outlined"
                       color="secondary"
                       className="bg-transparent"
+                      onClick={() => start(id, name)}
                     >
                       <PlayArrow />
                     </Button>
