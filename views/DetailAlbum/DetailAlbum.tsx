@@ -22,7 +22,7 @@ const DetailAlbum = ({ id }: { id: string }) => {
     release_date,
     label,
     images = [],
-    tracks = [],
+    tracks,
   } = data || {}
   const { url } =
     images.reduce(
@@ -41,7 +41,7 @@ const DetailAlbum = ({ id }: { id: string }) => {
         artists={artists}
         url={url}
       />
-      <TrackList tracks={tracks} />
+      <TrackList isLoading={isLoading} tracks={tracks} />
       <OtherRelease />
       <NewsLetter />
     </>
