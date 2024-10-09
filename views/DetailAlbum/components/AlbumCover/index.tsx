@@ -62,7 +62,7 @@ const AlbumCover = ({
       id="section-1"
     >
       <div
-        className="w-full bg-black h-150 flex items-center justify-center p-4 [&>div]:hover:scale-125 [&>div]:duration-500 [&>div]:transition-all [&>div]:hover:opacity-70"
+        className="w-full bg-black h-150 flex items-center bg-no-repeat bg-cover bg-center justify-center p-4 [&>div]:hover:scale-125 [&>div]:duration-500 [&>div]:transition-all [&>div]:hover:opacity-70"
         style={{
           backgroundImage: `url("${url}")`,
         }}
